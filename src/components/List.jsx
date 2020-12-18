@@ -9,9 +9,9 @@ const List = (props) => (
     </div>
     <div className="list-books-content">
       <div>
-        <Bookshelf title="Currently Reading" books={props.books.filter((book) => (book.shelf === 'currentlyReading'))} />
-        <Bookshelf title="Want to Read" books={props.books.filter((book) => (book.shelf === 'wantToRead'))}/>
-        <Bookshelf title="Read" books={props.books.filter((book) => (book.shelf === 'read'))}/>
+        <Bookshelf title="Currently Reading" books={props.books} shelf="currentlyReading" />
+        <Bookshelf title="Want to Read" books={props.books} shelf="wantToRead" />
+        <Bookshelf title="Read" books={props.books} shelf="read" />
       </div>
     </div>
     <div className="open-search">
