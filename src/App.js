@@ -13,12 +13,22 @@ class BooksApp extends React.Component {
   componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {
-        console.log(books)
         this.setState(() => ({
           books: books
         }))
       })
-  }
+  };
+
+  updateBook = (book, shelf) => {
+    book.shelf = shelf
+
+    BooksAPI.update(book, shelf)
+      .then((bookList) => {
+        this.setState((prevState) => ({
+          books: prevState.books.filter((b) => b.id !== book.id).concat(book)
+        }))
+      })
+  };
 
   render() {
     return (
@@ -26,7 +36,7 @@ class BooksApp extends React.Component {
         <div className="app">
           <Route path='/search' component={Search} />
           <Route exact path='/'>
-            <List books={this.state.books} />
+            <List books={this.state.books} onUpdateBook={this.updateBook}/>
           </Route>
       </div>
       </BrowserRouter>
