@@ -7,9 +7,9 @@ const Bookshelf = (props) => (
     <div className="bookshelf-books">
       <ol className="books-grid">
         {props.books.filter((book) => (book.shelf === props.shelf)).map((book) => (
-        <li key={book.id}>
-          <Book book={book} onUpdateBook={props.onUpdateBook} />
-        </li>
+          <li key={book.id}>
+            <Book book={book} onUpdateBook={props.onUpdateBook} />
+          </li>
         ))}
       </ol>
     </div>

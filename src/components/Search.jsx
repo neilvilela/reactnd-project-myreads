@@ -9,19 +9,23 @@ class Search extends React.Component {
     results: []
   };
 
+
   searchBooks = (searchQuery) => {
     this.setState((_prevState) => ({
       query: searchQuery
     }));
 
     searchQuery !== '' && BooksAPI.search(searchQuery)
-      .then((response) => {
-        this.setState((_prevState) => ({
-          results: response.error ? [] : response
-        }))
-        console.log(response);
-      });
+    .then((response) => {
+      this.setState((_prevState) => ({
+        results: response.error ? [] : response.map((b) => (this.handleCorrectBookshelves(b)))
+      }));
+    });
   };
+
+  handleCorrectBookshelves = (responseBook) => (
+    this.props.books.filter((b) => b.id === responseBook.id)[0] || responseBook
+  )
 
   render() {
     return (

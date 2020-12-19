@@ -30,16 +30,12 @@ class BooksApp extends React.Component {
       });
   };
 
-  searchBook = (searchTerm) => {
-    // BooksAPI.search
-  }
-
   render() {
     return (
       <BrowserRouter>
         <div className="app">
           <Route path="/search">
-            <Search onUpdateBook={this.updateBook} />
+            <Search books={this.state.books} onUpdateBook={this.updateBook} />
           </Route>
           <Route exact path="/">
             <List books={this.state.books} onUpdateBook={this.updateBook}/>
