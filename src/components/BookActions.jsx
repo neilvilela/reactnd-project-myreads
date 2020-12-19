@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const BookActions = (props) => (
   <div className="book-shelf-changer">
@@ -12,4 +12,4 @@ const BookActions = (props) => (
   </div>
 )
 
-export default BookActions
+export default BookActions;

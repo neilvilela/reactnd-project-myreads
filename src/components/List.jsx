@@ -1,6 +1,6 @@
-import React from 'react'
-import LinkButton from './LinkButton'
-import Bookshelf from './Bookshelf'
+import React from 'react';
+import LinkButton from './LinkButton';
+import Bookshelf from './Bookshelf';
 
 const List = (props) => (
   <div className="list-books">
@@ -18,6 +18,6 @@ const List = (props) => (
       <LinkButton to='/search'>Add a book</LinkButton>
     </div>
   </div>
-)
+);
 
-export default List
+export default List;

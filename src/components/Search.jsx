@@ -1,5 +1,5 @@
-import React from 'react'
-import LinkButton from './LinkButton'
+import React from 'react';
+import LinkButton from './LinkButton';
 
 const Search = () => (
   (
@@ -24,6 +24,6 @@ const Search = () => (
       </div>
     </div>
   )
-)
+);
 
-export default Search
+export default Search;

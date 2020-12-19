@@ -1,5 +1,5 @@
-import React from 'react'
-import BookActions from './BookActions'
+import React from 'react';
+import BookActions from './BookActions';
 
 const Book = (props) => (
   <div className="book">
@@ -12,4 +12,4 @@ const Book = (props) => (
   </div>
 )
 
-export default Book
+export default Book;
