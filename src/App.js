@@ -19,6 +19,11 @@ class BooksApp extends React.Component {
       });
   };
 
+  /**
+   * Move books between shelves and update the bookshelves.
+   * @param {object} book - Book object to be updated. Must contain at least an id.
+   * @param {string} shelf - New shelf where the book is going to move.
+   */
   updateBook = (book, shelf) => {
     book.shelf = shelf;
 

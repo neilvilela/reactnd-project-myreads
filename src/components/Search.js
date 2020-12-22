@@ -10,6 +10,9 @@ class Search extends React.Component {
     results: []
   };
 
+  /**
+   * Search books in Udacity books API and update the search results.
+   */
   searchBooks = (searchQuery) => {
     this.setState((_prevState) => ({
       query: searchQuery
@@ -17,14 +20,17 @@ class Search extends React.Component {
 
     BooksAPI.search(searchQuery)
       .then((response) => {
-        console.log("BOOKS", response)
         this.setState((_prevState) => ({
-          results: response && !response.error ? response.map((b) => (this.handleCorrectBookshelves(b))) : []
+          results: response && !response.error ? response.map((b) => (this.handleCorrectBookshelf(b))) : []
         }));
       });
   };
 
-  handleCorrectBookshelves = (responseBook) => (
+  /**
+   * If a book exists in any bookshelf, return that book instead of the search result.
+   * @param {object} responseBook - A single book object returned from the search endpoint.
+   */
+  handleCorrectBookshelf = (responseBook) => (
     this.props.books.filter((b) => b.id === responseBook.id)[0] || responseBook
   )
 
