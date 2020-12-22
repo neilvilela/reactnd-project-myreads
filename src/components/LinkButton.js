@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 
+/**
+ * @author Beau Smith
+ */
 const LinkButton = (props) => {
   const {
     history,
