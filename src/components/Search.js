@@ -15,12 +15,13 @@ class Search extends React.Component {
       query: searchQuery
     }));
 
-    searchQuery !== '' && BooksAPI.search(searchQuery)
-    .then((response) => {
-      this.setState((_prevState) => ({
-        results: response.error ? [] : response.map((b) => (this.handleCorrectBookshelves(b)))
-      }));
-    });
+    BooksAPI.search(searchQuery)
+      .then((response) => {
+        console.log("BOOKS", response)
+        this.setState((_prevState) => ({
+          results: response && !response.error ? response.map((b) => (this.handleCorrectBookshelves(b))) : []
+        }));
+      });
   };
 
   handleCorrectBookshelves = (responseBook) => (
