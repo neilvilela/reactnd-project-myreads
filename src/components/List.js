@@ -1,6 +1,7 @@
 import React from 'react';
 import LinkButton from './LinkButton';
 import Bookshelf from './Bookshelf';
+import PropTypes from 'prop-types';
 
 const List = (props) => (
   <div className="list-books">
@@ -19,5 +20,10 @@ const List = (props) => (
     </div>
   </div>
 );
+
+List.propTypes = {
+  books: PropTypes.array.isRequired,
+  onUpdateBook: PropTypes.func.isRequired
+};
 
 export default List;

@@ -2,13 +2,13 @@ import React from 'react';
 import LinkButton from './LinkButton';
 import Book from './Book';
 import * as BooksAPI from '../BooksAPI';
+import PropTypes from 'prop-types';
 
 class Search extends React.Component {
   state = {
     query: "",
     results: []
   };
-
 
   searchBooks = (searchQuery) => {
     this.setState((_prevState) => ({
@@ -43,7 +43,6 @@ class Search extends React.Component {
             {this.state.results.map(
               (book) => (
                 <li key={book.id}>
-                  <p>{this.props.teste}</p>
                   <Book book={book} onUpdateBook={this.props.onUpdateBook} />
                 </li>
               )
@@ -54,5 +53,10 @@ class Search extends React.Component {
     )
   }
 };
+
+Search.propTypes = {
+  books: PropTypes.array.isRequired,
+  onUpdateBook: PropTypes.func.isRequired
+}
 
 export default Search;

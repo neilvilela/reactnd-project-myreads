@@ -1,5 +1,6 @@
 import React from 'react';
 import BookActions from './BookActions';
+import PropTypes from 'prop-types';
 
 const Book = (props) => (
   <div className="book">
@@ -10,6 +11,11 @@ const Book = (props) => (
     <div className="book-title">{props.book.title}</div>
     <div className="book-authors">{props.book.authors}</div>
   </div>
-)
+);
+
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  onUpdateBook: PropTypes.func.isRequired
+};
 
 export default Book;
